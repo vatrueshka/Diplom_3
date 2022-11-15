@@ -9,7 +9,7 @@ public class ForgotPasswordPage {
 
     //локатор ссылке "Войти"
     @FindBy(how = How.LINK_TEXT, using = "Войти")
-    private static SelenideElement loginButton;
+    private SelenideElement loginButton;
 
     //метод клика по ссылке "Войти"
     @Step("Клик по ссылке Войти")

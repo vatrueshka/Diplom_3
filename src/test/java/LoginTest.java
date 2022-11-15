@@ -46,7 +46,7 @@ public class LoginTest {
         Selenide.open(BASE_URL);
 
         mainPage.loginButtonClick();
-        loginPage.enterLoginFields(user.email, user.password);
+        loginPage.enterLoginFields(user.getEmail(), user.getPassword());
         loginPage.loginButtonClick();
 
         assertTrue("Login failed", baseUrls.checkMainPageOpened());
@@ -58,7 +58,7 @@ public class LoginTest {
         Selenide.open(BASE_URL);
 
         mainPage.yourAccountButtonClick();
-        loginPage.enterLoginFields(user.email, user.password);
+        loginPage.enterLoginFields(user.getEmail(), user.getPassword());
         loginPage.loginButtonClick();
 
         assertTrue("Login failed", baseUrls.checkMainPageOpened());
@@ -71,7 +71,7 @@ public class LoginTest {
         Selenide.open(REGISTER_PAGE_URL);
 
         registerPage.loginButtonRegistrationPageClick();
-        loginPage.enterLoginFields(user.email, user.password);
+        loginPage.enterLoginFields(user.getEmail(), user.getPassword());
         loginPage.loginButtonClick();
 
         assertTrue("Login failed", baseUrls.checkMainPageOpened());
@@ -84,7 +84,7 @@ public class LoginTest {
         Selenide.open(FORGOT_PASSWORD_PAGE_URL);
 
         forgotPasswordPage.loginButtonClick();
-        loginPage.enterLoginFields(user.email, user.password);
+        loginPage.enterLoginFields(user.getEmail(), user.getPassword());
         loginPage.loginButtonClick();
 
         assertTrue("Login failed", baseUrls.checkMainPageOpened());

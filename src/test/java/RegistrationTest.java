@@ -6,6 +6,7 @@ import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import page.object.BaseUrls;
@@ -21,8 +22,9 @@ public class RegistrationTest {
     RegisterPage registerPage = page(RegisterPage.class);
 
     private UserClientSteps userClientSteps = new UserClientSteps();
-
     private User user;
+    private ValidatableResponse validatableResponse;
+    private String bearerToken;
 
     @Before
     public void setBrowser() {
@@ -33,23 +35,33 @@ public class RegistrationTest {
         Selenide.open(REGISTER_PAGE_URL);
     }
 
+    @After
+    public void tearDown() {
+        //закрытие браузера
+        Selenide.closeWebDriver();
+        //попытка удаления юзера, если он был создан
+        validatableResponse = userClientSteps.login(UserCredentials.from(user));
+        bearerToken = validatableResponse.extract().path("accessToken");
+        userClientSteps.delete(bearerToken);
+    }
+
     @Test
     @DisplayName("Проверка успешной регистрации")
     public void successRegistrationTest() {
         //регистрация на фронте
-        registerPage.enterRegistrationFields(user.name, user.email, user.password);
+        registerPage.enterRegistrationFields(user.getName(), user.getEmail(), user.getPassword());
         registerPage.registerButtonClick();
 
         //проверка, что после успешной регистрации открывается страница логина
         assertTrue("Login via registered user failed", baseUrls.checkLoginPageOpened());
 
         //проверка логина под созданным юзером с помощью api
-        ValidatableResponse validatableResponse = userClientSteps.login(UserCredentials.from(user));
+        validatableResponse = userClientSteps.login(UserCredentials.from(user));
         validatableResponse.assertThat().statusCode(200);
         validatableResponse.assertThat().body("success", equalTo(true));
 
         //удаление юзера
-        String bearerToken = validatableResponse.extract().path("accessToken");
+        bearerToken = validatableResponse.extract().path("accessToken");
         userClientSteps.delete(bearerToken);
     }
 
@@ -61,12 +73,15 @@ public class RegistrationTest {
         String password = faker.internet().password(1, 6);
 
         //регистрация на фронте
-        registerPage.enterRegistrationFields(user.name, user.email, password);
+        registerPage.enterRegistrationFields(user.getName(), user.getEmail(), password);
         registerPage.registerButtonClick();
 
         //проверка отображения ошибки
         registerPage.passwordErrorCheck();
-//        assertTrue("", registerPage.passwordErrorCheck()); //мб сделать булин чтобы ассерт написать
+
+        //попытка авторизации под юзером, если он создался, для последующего удаления юзера
+        UserCredentials userCredentials = new UserCredentials(user.getEmail(), password);
+        validatableResponse = userClientSteps.login(userCredentials);
     }
 
 }

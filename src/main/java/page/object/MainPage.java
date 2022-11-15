@@ -10,48 +10,48 @@ public class MainPage {
 
     //локатор кнопки "Конструктор"
     @FindBy(how = How.XPATH, using = ".//p[text()='Конструктор']")
-    private static SelenideElement constructorButton;
+    private SelenideElement constructorButton;
 
     //локатор кнопки "Лента заказов"
     @FindBy(how = How.XPATH, using = ".//p[text()='Лента Заказов']")
-    private static SelenideElement orderFeedButton;
+    private SelenideElement orderFeedButton;
 
     //локатор логотипа "Stellar Burgers"
     @FindBy(how = How.XPATH, using = ".//div[starts-with(@class, 'AppHeader_header__logo__2D0X2')]")
-    private static SelenideElement mainLogo;
+    private SelenideElement mainLogo;
 
     //локатор кнопки "Личный Кабинет"
     @FindBy(how = How.LINK_TEXT, using = "Личный Кабинет")
-    private static SelenideElement yourAccountButton;
+    private SelenideElement yourAccountButton;
 
     //локатор кнопки "Войти в аккаунт"
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти в аккаунт']")
-    private static SelenideElement loginButton;
+    private SelenideElement loginButton;
 
     //// Раздел «Конструктор»
     //локатор вкладки Булки
     @FindBy(how = How.XPATH, using = ".//span [@class='text text_type_main-default'][text()='Булки']")
-    public SelenideElement bunsTab;
+    private SelenideElement bunsTab;
 
     //локатор вкладки Соусы
     @FindBy(how = How.XPATH, using = ".//span [@class='text text_type_main-default'][text()='Соусы']")
-    public SelenideElement saucesTab;
+    private SelenideElement saucesTab;
 
     //локатор вкладки Начинки
     @FindBy(how = How.XPATH, using = ".//span [@class='text text_type_main-default'][text()='Начинки']")
-    public SelenideElement ingredientsTab;
+    private SelenideElement ingredientsTab;
 
     //локатор заголовка Булки
     @FindBy(how = How.XPATH, using = ".//span[text()='Булки']")
-    public SelenideElement bunsHeader;
+    private SelenideElement bunsHeader;
 
     //локатор заголовка Соусы
     @FindBy(how = How.XPATH, using = ".//span[text()='Соусы']")
-    public SelenideElement saucesHeader;
+    private SelenideElement saucesHeader;
 
     //локатор заголовка Начинки
     @FindBy(how = How.XPATH, using = ".//span[text()='Начинки']")
-    public SelenideElement ingredientsHeader;
+    private SelenideElement ingredientsHeader;
 
     //метод клика по кнопке "Конструктор"
     public void constructorButtonClick() {

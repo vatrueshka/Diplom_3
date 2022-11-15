@@ -9,15 +9,15 @@ public class LoginPage {
 
     //локатор поля ввода "Email"
     @FindBy(how = How.XPATH, using = ".//input[@name='name']")
-    private static SelenideElement emailField;
+    private SelenideElement emailField;
 
     //локатор поля ввода "Пароль"
     @FindBy(how = How.XPATH, using = ".//input[@name='Пароль']")
-    private static SelenideElement passwordField;
+    private SelenideElement passwordField;
 
     //локатор кнопки "Войти"
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти']")
-    private static SelenideElement loginButton;
+    private SelenideElement loginButton;
 
     //метод ввода значения в поле "Email"
     @Step("Ввод значений в поля Email и Пароль")

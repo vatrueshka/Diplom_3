@@ -34,7 +34,7 @@ public class PageTransitionsViaAuthorizedUserTest {
         validatableResponse = userClientSteps.create(user);
         //логин под созданным юзером
         Selenide.open(LOGIN_PAGE_URL);
-        loginPage.enterLoginFields(user.email, user.password);
+        loginPage.enterLoginFields(user.getEmail(), user.getPassword());
         loginPage.loginButtonClick();
 
     }

@@ -10,23 +10,23 @@ public class RegisterPage {
 
     //локатор поля ввода "Имя"
     @FindBy(how = How.XPATH, using = ".//form//div[label[text()='Имя']]/input")
-    private static SelenideElement nameField;
+    private SelenideElement nameField;
 
     //локатор поля ввода "Email"
     @FindBy(how = How.XPATH, using = ".//form//div[label[text()='Email']]/input")
-    private static SelenideElement emailField;
+    private SelenideElement emailField;
 
     //локатор поля ввода "Пароль"
     @FindBy(how = How.XPATH, using = ".//form//div[label[text()='Пароль']]/input")
-    private static SelenideElement passwordField;
+    private SelenideElement passwordField;
 
     //локатор "Некорректный пароль"
     @FindBy(how = How.CLASS_NAME, using = "input__error")
-    private static SelenideElement passwordError;
+    private SelenideElement passwordError;
 
     //локатор кнопки "Зарегистрироваться"
     @FindBy(how = How.XPATH, using = ".//button[text()='Зарегистрироваться']")
-    private static SelenideElement registerButton;
+    private SelenideElement registerButton;
 
     //локатор ссылки "Войти"
     @FindBy(how = How.LINK_TEXT, using = "Войти")

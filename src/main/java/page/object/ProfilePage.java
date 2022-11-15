@@ -9,7 +9,7 @@ public class ProfilePage {
 
     //локатор кнопки "Выход"
     @FindBy(how = How.XPATH, using = "//button[text()='Выход']")
-    private static SelenideElement exitButton;
+    private SelenideElement exitButton;
 
     //метод клика по кнопке "Выход"
     @Step("Клик по кнопке Выйти")
