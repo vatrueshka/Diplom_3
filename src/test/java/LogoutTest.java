@@ -52,7 +52,7 @@ public class LogoutTest {
 
     @Test
     @DisplayName("Проверка перехода по клику на Личный кабинет под авторизованным юзером")
-    public void YourAccountButtonTransitionViaAuthorizedUserTest() {
+    public void yourAccountButtonTransitionViaAuthorizedUserTest() {
         mainPage.yourAccountButtonClick();
         profilePage.exitButtonClick();
         baseUrls.checkLoginPageOpened();

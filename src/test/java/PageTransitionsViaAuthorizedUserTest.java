@@ -51,14 +51,14 @@ public class PageTransitionsViaAuthorizedUserTest {
 
     @Test
     @DisplayName("Проверка перехода по клику на Личный кабинет под авторизованным юзером")
-    public void YourAccountButtonTransitionViaAuthorizedUserTest() {
+    public void yourAccountButtonTransitionViaAuthorizedUserTest() {
         mainPage.yourAccountButtonClick();
         baseUrls.checkProfilePageOpened();
     }
 
     @Test
     @DisplayName("Проверка перехода по клику на кнопку Конструктор под авторизованным юзером")
-    public void ConstructorButtonTransitionViaAuthorizedUserTest() {
+    public void constructorButtonTransitionViaAuthorizedUserTest() {
         mainPage.yourAccountButtonClick();
         mainPage.constructorButtonClick();
         baseUrls.checkMainPageOpened();
@@ -66,7 +66,7 @@ public class PageTransitionsViaAuthorizedUserTest {
 
     @Test
     @DisplayName("Проверка перехода по клику логотип Stellar Burgers под авторизованным юзером")
-    public void MainLogoTransitionViaAuthorizedUserTest() {
+    public void mainLogoTransitionViaAuthorizedUserTest() {
         mainPage.yourAccountButtonClick();
         mainPage.mainLogoClick();
         baseUrls.checkMainPageOpened();
